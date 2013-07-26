@@ -1,0 +1,81 @@
+Welcome to mellow_panda.
+
+mellow_panda is free software. Please see the file COPYING for details.
+
+For documentation, please see the files in the doc subdirectory.
+
+For building and installation instructions please see the INSTALL file.
+
+//INTRODUCTION//
+
+Mellow Panda is a collection of applications which enable remote control of 
+communications and “scanner” radios via RS-232/USB interfaces.
+
+I created Mellow Panda because most radio manufacturers only support “Brand W” 
+computer operating systems, and I use LINUX (Ubuntu LINUX to be specific). 
+There are already many similar LINUX based applications available, but they 
+did not fit my needs (although they were helpful to review).  Mellow Panda was 
+developed on Ubuntu 8.10 desktop and (to date) has been tested w/Ubuntu 8.04.3 
+desktop, Ubuntu 9.04 server and Fedora 11.
+
+Mellow Panda takes a different approach from most (all?) other scanner 
+control applications in that it is not a single monolithic application.
+Rather, Mellow Panda is a collection of specialized applications.
+
+The deployment model for Mellow Panda consists of a server (pandad) and 
+various clients.  I supply a command line client (panda) and several
+demonstration scripts.  (It turns out that most of my needs are satisfied
+by using scripts).
+
+panda/pandad employs a simple protocol which should make it simple for you
+to create your own client.
+
+pandad does does not interpret the scanner commands, there are not generic
+radio commands such as "tune".  All of the radio specific logic resides
+within the client applications.
+
+Be sure to check the doc subdirectory for a more details.
+
+//DOWNLOADING//
+
+This project is hosted on SourceForge at http://mellowpanda.sourceforge.net/
+
+//UNPACK//
+
+tar -xvzf mellow-panda-1.0.0.tar.gz 
+
+//COMPILE AND INSTALL//
+
+make;make install
+
+make install distributes this files
+  /usr/local/bin/panda       (panda executable)
+  /usr/local/sbin/pandad     (pandad executable)
+  /usr/local/etc/pandad.conf (pandad configuration)
+
+Update your configuration at /usr/local/etc/pandad.conf (see docs directory) 
+
+Optional:
+  pandad start/stop script in dist directory, copy to /etc/init.d/pandad  
+  Update your /etc/syslog.conf to support "local5"
+
+//TEST//
+
+It is always fun to get a new device working w/RS-232. 
+
+pandad has command line options to help you work through this.
+
+See the doc directory for some suggestions.
+
+//RUNNING//
+
+Once you have pandad and the radios happily communicating, you can place it
+in the background and forget it.
+
+There are sample scripts provided w/the distribution to illustrate the use
+of panda/pandad.
+
+I have java clients (a swing client and a servlet) on the way, but they
+will be a separate download (still part of mellow panda, but a different
+tar file).  RSN.  Really.
+
